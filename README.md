@@ -4,7 +4,7 @@ a quarantine ReactJS experiment
 
 # Dev Environment
 http://localhost:3000
-{{npm start dev}}
+{{npm run dev}}
 
 For custom domain create dev-host.js in the root and set
 
