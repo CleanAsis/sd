@@ -1,7 +1,13 @@
 const path = require('path');
+const fs = require('fs');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
+// custom devHost
+const devHostFile = './dev-host.js';
+fs.existsSync(devHostFile) && require(devHostFile);
+global.devHost && console.log(`Custom dev host specified in ${devHostFile}: ${global.devHost}`);
 
 // HtmlWebpackPlugin is used to inject our created bundles into this html file so // we need to create it.
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
@@ -15,6 +21,7 @@ module.exports = {
     devServer: {
         port: 3000,
         contentBase: './dist',
+        host: global.devHost || 'localhost'
     },
     entry: {
         app: ['./src/App.jsx'],
