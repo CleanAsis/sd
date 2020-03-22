@@ -40,15 +40,23 @@ module.exports = {
             {
                 test: /\.(js|jsx)$/,
                 exclude: /(node_modules)/,
-                use: ['babel-loader'], // we use this to transpile es6 code on the web
-              },
-              {
+                use: ['babel-loader']
+            },
+            {
                 test: /\.css$/,
                 use: [
                   MiniCssExtractPlugin.loader,
-                  "css-loader", "postcss-loader",
-                  ],
-                },
+                  "css-loader"
+                ]
+            },
+            {
+                test: /\.svg$/,
+                use: ['babel-loader',
+                {
+                    loader: 'react-svg-loader',
+                    options: { jsx: true }
+                }]
+            }
         ]
     },
     plugins: [
@@ -57,7 +65,7 @@ module.exports = {
             chunkFilename: "styles.css"
         }),
         HtmlWebpackPluginConfig,
-        new webpack.NoEmitOnErrorsPlugin(),
+        new webpack.NoEmitOnErrorsPlugin()
     ],
     mode: 'development',
 }

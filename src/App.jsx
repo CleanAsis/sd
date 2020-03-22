@@ -1,17 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
+import Stage from './components/Stage';
+import Person from './components/Person';
+import './App.css';
 
 const rootEl = document.getElementById('root');
 
-
 const App = () => {
-    const x = 5;
     return (
-        <div>
-            <h1 style={{ 'textAlign': 'center'}}> Social Distancing </h1>
-        </div>
-        );
+        <Stage>
+            <Person />
+        </Stage>
+    );
 };
 
 const renderApp = () => {
