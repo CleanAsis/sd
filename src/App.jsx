@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Stage from './components/Stage';
-import Person from './components/Person';
+import Actor from './components/Actor';
 import './App.css';
 
 const rootEl = document.getElementById('root');
@@ -9,7 +9,7 @@ const rootEl = document.getElementById('root');
 const App = () => {
     return (
         <Stage>
-            <Person />
+            <Actor />
         </Stage>
     );
 };
